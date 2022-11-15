@@ -1,0 +1,58 @@
+{# donations-block.html.twig #}
+<!-- if {{ donations_form_ua }} -->
+<!-- add class="donations-ua-header" -->
+<div id="donations-wrapper">
+  <div>{{ form['#submit'] }}</div>
+  <div class="donations-intro">{{ donations_intro }}</div>
+  <div class="donations-amount">
+    <button class="minus" aria-label="{{ label_minus }}">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </button>
+    <label class="amount-container">
+      <input type="text" name="donation_amount" id="donation-amount" value="20" />
+      <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+    </label>
+    <button class="plus" aria-label="{{ label_plus }}">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="donations-info">
+    <div><input type="text" placeholder="{{ label_info_name }}" name="donation_name" id="donation-name" value="" /></div>
+    <div><input type="text" placeholder="{{ label_info_email }}" name="donation_email" id="donation-email" value="" /></div>
+    {# <!-- if {{ donations_form_ua }} add donation_purpose --> #}
+    {# <!-- else choose funds --> #}
+    {# Funds #}
+    <div>
+      <div class="choose-fund-text">{{ fund_text }}</div>
+      <div class="clearfix">
+        {% for key, fund in funds %}
+          {# todo: Add default fund #}
+          {# '.($default_fund == $fund_key ? ' checked="checked"' : '').' #}
+          <input type="radio" name="donation_purpose" value="{{ key }}" id="radio-label-{{ key }}"/>
+          <label for="radio-label-{{ key }}">{{ fund }}</label>
+        {% endfor %}
+      </div>
+    </div>
+    {# Banks #}
+    <input type="hidden" name="donation_returnurl" id="donation-returnurl" value="'.urlencode(current_path()).'" />
+    <input type="hidden" name="donation_payment" id="donation-payment" value="{{ donation_payment_url }}" />
+    <div class="donations-payment clearfix">
+      <div class="choose-bank-text">{{ bank_text }}</div>
+      {% for key, bank in banks %}
+        <div class="donations-banklink {{ key }}">
+          <a href="#" data-bank-id="{{ key }}"><img src="{{ bank.img }}" title="{{ bank.name }}" alt="{{ bank.name }}" height="31" /></a>
+        </div>
+      {% endfor %}
+    </div>
+    {# Monthly donation #}
+    <h2 class="donations-recurring-intro">{{ recurring_intro }}</h2>
+    <div class="donations-recurring clearfix">
+      <div class="recurring-text">{{ recurring_text }}</div>
+        {% for bank in banks if bank.linkrecurr %}
+            <div class="recurring-donations-banklink">
+              <a href="{{ bank.linkrecurr }}"><img src="{{ bank.img }}" title="{{ bank.name }}" alt="{{ bank.name }}" height="31" /></a>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+css_lib:
+  version: 1.x
+  css:
+    component:
+      css/donations.css: {}
+
+js_lib:
+  version: 1.x
+  js:
+    js/donations.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

@@ -1,0 +1,42 @@
+donations.settings:
+  type: config_object
+  label: 'Labels for template block'
+  mapping:
+    banks:
+      type: sequence
+      sequence:
+        type: mapping
+        mapping:
+          name:
+            type: text
+            label: 'Name'
+          linkrecurr:
+            type: text
+            label: 'URL recurr'
+          enabled:
+            type: boolean
+            label: 'Enabled'
+    basic:
+      type: mapping
+      mapping:
+        donations_intro:
+          type: text
+          label: 'Every donation helps us to reach more beneficiaries and increase our societal impact. Thank you for your support!'
+        label_minus:
+          type: text
+          label: 'Reduce'
+        label_plus:
+          type: text
+          label: 'Increase'
+        info_name:
+          type: text
+          label: 'Name'
+        info_email:
+          type: text
+          label: 'E-mail'
+        fund_text:
+          type: text
+          label: 'Choose one of the funds below:'
+        donations_form_ua:
+          type: boolean
+          label: 'UA form'

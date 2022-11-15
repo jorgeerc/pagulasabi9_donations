@@ -1,0 +1,5 @@
+donations.settings:
+  title: Donations
+  parent: system.admin_config
+  description: 'Donations module configurations.'
+  route_name: donations.settings

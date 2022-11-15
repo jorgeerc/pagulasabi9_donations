@@ -1,0 +1,36 @@
+donations.settings:
+  path: '/admin/config/donations_settings'
+  defaults:
+    _form: '\Drupal\donations\Form\DonationsConfigForm'
+    _title: 'Donations'
+  requirements:
+    _permission: 'administer site configuration'
+donations.payment:
+  path: '/donations/payment'
+  defaults:
+    _controller: '\Drupal\donations\Controller\DonationsController::donations_generate_banklink'
+    _title: 'Payment'
+  requirements:
+    _permission: 'access content'
+donations.return:
+  path: '/donations/return/{payment_id}'
+  defaults:
+    _controller: '\Drupal\donations\Controller\DonationsController::donations_payment_return'
+    _title: 'Payment return'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      payment_id:
+        type: Integer
+donations.cancel:
+  path: '/donations/return/{payment_id}/cancel'
+  defaults:
+    _controller: '\Drupal\donations\Controller\DonationsController::donations_payment_return_cancel'
+    _title: 'Payment cancelled'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      payment_id:
+        type: Integer

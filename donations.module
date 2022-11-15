@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ *
+ * We use hook_theme to define the templates used.
+ */
+function donations_theme($existing, $type, $theme, $path) {
+  return [
+    'donations_block' => [
+      'variables' => [
+        'text' => '',
+        'fund_text' => '',
+      ],
+      'render element' => 'form',
+      'file' => 'donations.theme.inc',
+    ],
+    'donations_form_example' => [
+      'render element' => 'form'
+    ],
+    'basic_twig_block' => [
+      'variables' => [
+        'text' => '',
+      ],
+    ],
+    'css_block' => [
+      'variables' => [],
+    ],
+    'js_block' => [
+      'variables' => [],
+    ],
+    'context_block' => [
+      'variables' => [
+        'name' => NULL,
+      ],
+    ],
+  ];
+}

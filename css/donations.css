@@ -1,0 +1,184 @@
+.block-donations + #block-system-main .content-container {
+   margin-right: 50%;
+}
+.block-donations {
+	background-color: #eeeeee;
+	width: 50%;
+	float: right;
+	z-index: 2;
+	margin-top: 93px;
+}
+@media all and (max-width: 767px) {
+	.block-donations + #block-system-main .content-container {
+		margin-right: 0;
+	}
+	.block-donations + #block-system-main .field-name-title-field {
+		margin-top: 20px;
+	}
+	.block-donations {
+		width: 100%;
+		float: none;
+		margin-top: 0;
+	}
+}
+.block-donations h2 {
+	background: rgba(214, 26, 32, 0.85);
+   margin: 0;
+   padding: 20px 10%;
+   color: #ffffff;
+   font-family: 'Fira Sans Extra Condensed', sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+}
+.donations-intro {
+	padding: 0 10% 15px;
+	background: rgba(214, 26, 32, 0.85);
+	color: #ffffff;
+	text-align: center;
+	font-size: 16px;
+}
+.donations-amount {
+  	padding: 5px 20px 12px;
+	background: rgba(214, 26, 32, 0.85);
+	color: #ffffff;
+	position: relative;
+	text-align: center;
+}
+.block-donations .donations-ua-header h2 {
+	background: #0057b7;
+}
+.block-donations .donations-ua-header .donations-intro {
+	background: #0057b7;
+	margin-top: -10px;
+}
+.block-donations .donations-ua-header .donations-amount {
+	background: #ffd700;
+	padding: 22px 20px 12px;
+}
+.donations-amount button {
+	border: 0;
+   background: transparent;
+   color: #ffffff;
+   height: 29px;
+   width: 38px;
+   margin: 0;
+   padding: 0;
+   font-size: 29px;
+   text-align: center;
+   display: inline-block;
+   vertical-align: top;
+   margin-top: 7px;
+}
+.donations-amount button:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+.donations-amount label {
+	position: relative;
+   background: #ffffff;
+   border-radius: 4px;
+   line-height: 50px;
+   height: 50px;
+	width: 160px;
+	display: inline-block;
+}
+.donations-amount input {
+	font-size: 30px;
+   position: absolute;
+   right: 0;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   color: #444444;
+   width: 100%;
+   background: transparent;
+   border: 0;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+.donations-amount input:focus,
+.donations-amount button:focus {
+	outline: none;
+}
+.donations-amount .glyphicon-euro {
+	position: absolute;
+   right: 4px;
+   top: 0;
+   color: rgba(68, 68, 68, 0.8);
+   font-weight: 400;
+   font-style: normal;
+   font-size: 18px;
+   line-height: 50px;
+}
+.donations-info > div {
+	padding: 15px 10% 0;
+}
+.donations-info .choose-fund-text {
+	padding-bottom: 7px;
+   font-size: 16px;
+}
+.donations-info input {
+	width: 100%;
+   font-size: 20px;
+   padding: 4px 10px;
+	border: none;
+}
+.donations-info input[type=radio] {
+	display: none;
+}
+.donations-info input[type=radio] + label {
+	float: left;
+	clear: left;
+   background: rgba(68, 68, 68, 0.8);
+   color: #ffffff;
+   font-weight: 400;
+   padding: 4px 8px;
+   margin: 0 3px 3px 0;
+   cursor: pointer;
+	font-size: 17px;
+}
+.donations-info input[type=radio]:checked + label {
+	font-weight: 600;
+	background: rgba(214, 26, 32, 0.85);
+}
+.donations-payment {
+	padding: 15px 10% 30px;
+}
+.donations-payment .choose-bank-text {
+	padding-bottom: 7px;
+   font-size: 16px;
+}
+.donations-banklink,
+.recurring-donations-banklink {
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+.donations-banklink.paypal img {
+  height: 31px;
+}
+.donations-recurring-intro {
+	padding: 15px 10%;
+	/*border-top: 3px solid #ffffff;*/
+   background: rgba(214, 26, 32, 0.85);
+   color: #ffffff;
+   font-family: 'Fira Sans Extra Condensed', sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+	margin-top: 0;
+}
+.donations-recurring {
+	padding: 15px 10% 30px;
+}
+.donations-recurring .recurring-text {
+	padding-bottom: 7px;
+   font-size: 16px;
+}
+#donations-badge {
+  text-align: center;
+  padding: 10px 0;
+}
+/* example */
+#donations-img-lhv {
+  background: url(images/lhv.png) no-repeat center center;
+}

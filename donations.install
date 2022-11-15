@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the donations module.
+ */
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ * @ingroup donations
+ */
+function donations_schema() {
+  $schema['donations'] = [
+    'description' => 'Stores donation transactions.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => "Id of the donation",
+      ],
+      'amount' => [
+        'type' => 'numeric',
+        'precision' => 10,
+        'scale' => 2,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "Amount of the donation",
+      ],
+      'bank_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Bank ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Email of the person.',
+      ],
+      'purpose' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Purpose of donation.',
+      ],
+      'created' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Created.',
+      ],
+      'payment_success' => [
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Payment success.',
+      ],
+      'payment_message' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'description' => 'Message.',
+      ],
+      'return_url' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Return url.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

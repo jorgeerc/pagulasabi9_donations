@@ -1,0 +1,9 @@
+name: Donations
+description: Bank links donations.
+type: module
+package: Pagulasabi
+core_version_requirement: ^8.8.0 || ^9 || ^10
+configure: donations.setting
+dependencies:
+  - drupal:block
+  - drupal:config
