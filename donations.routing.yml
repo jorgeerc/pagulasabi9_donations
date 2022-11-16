@@ -34,3 +34,5 @@ donations.cancel:
     parameters:
       payment_id:
         type: Integer
+donations.success:
+  path: '/'

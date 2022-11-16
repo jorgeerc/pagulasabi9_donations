@@ -3,8 +3,10 @@
 namespace Drupal\donations\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Returns responses for donations module.
@@ -110,7 +112,7 @@ class DonationsController extends ControllerBase {
    * {@inheritdoc}
    */
   function donations_payment_return_cancel($payment_id) {
-    $this->donations_payment_return($payment_id, 0);
+    return $this->donations_payment_return($payment_id, 0);
   }
 
   /**
@@ -146,15 +148,15 @@ class DonationsController extends ControllerBase {
 
     $return_url = $connection->query('SELECT return_url FROM {donations} WHERE id = :pid', [':pid' => $payment_id])->fetchField();
 
-    //TODO
     if ($payment_success == 1) {
-      drupal_set_message(t('Payment was successful. Thank you for your support!'));
-      drupal_goto($return_url);
+      \Drupal::messenger()->addMessage($this->t('Payment was successful. Thank you for your support!'));
     }
     else {
-      drupal_set_message(t('Donation payment failed. In the case of repeated errors, please contact the site administrator.'), 'error');
-      drupal_goto($return_url);
+      \Drupal::messenger()->addMessage($this->t('Donation payment failed. In the case of repeated errors, please contact the site administrator.'), 'error');
     }
+
+    $url = Url::fromRoute('donations.success');
+    return new RedirectResponse($url->toString());
   }
 
   /* BANKLINKS */
